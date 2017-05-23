@@ -1,0 +1,96 @@
+<!-- 官网:http://www.bootcss.com/p/bootstrap-datetimepicker/ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基于bootstrapt的时间控件</title>
+    <link href="http://res.yangfan.ren/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="http://res.yangfan.ren/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+	<div class="container">
+	    <form action="" class="form-horizontal"  role="form">
+	        <fieldset>
+	            <legend>Test</legend>
+	            <div class="form-group">
+	                <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
+	                <div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+	                    <input class="form-control" size="16" type="text" readonly>
+	                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+	                </div>
+					<input type="hidden" id="dtp_input1" value="" /><br/>	<!-- 真正数据存储的input -->
+	            </div>
+	            
+         		<div class="form-group">
+	                <label for="dtp_input2" class="col-md-2 control-label">Date Picking</label>
+	                <div class="input-group date form_date col-md-5" data-link-field="dtp_input2">
+	                    <input class="form-control" size="16" type="text" value="" readonly>
+	                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+	                </div>
+					<input type="hidden" id="dtp_input2" value="" /><br/>
+            	</div>
+            
+            
+				<div class="form-group">
+	                <label for="dtp_input3" class="col-md-2 control-label">Time Picking</label>
+	                <div class="input-group date form_time col-md-5" data-link-field="dtp_input3">
+	                    <input class="form-control" size="16" type="text" value="" readonly>
+	                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+	                </div>
+					<input type="hidden" id="dtp_input3" value="" /><br/>
+	            </div>
+            
+	        </fieldset>
+	    </form>
+	</div>
+
+<script type="text/javascript" src="http://res.yangfan.ren/js/jquery.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://res.yangfan.ren/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://res.yangfan.ren/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://res.yangfan.ren/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+     $('.form_datetime').datetimepicker({
+    	format: 'yyyy-mm-dd hh:ii:ss',
+        language:  'zh-CN',	// 语言
+        weekStart: 1,	// 一周从哪一天开始
+        todayBtn:  1,	// 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。如果是true的话，"Today" 按钮仅仅将视图转到当天的日期，如果是"linked"，当天日期将会被选中。
+		autoclose: 1,	// 选择一个日期之后是否立即关闭此日期时间选择器
+		todayHighlight: 1,	// 是否高亮当前日期
+		startView: 2,	// 日期时间选择器打开之后首先显示的视图。 可接受的值： 0=hour,1=day,2=month,3=year,4=decade
+		forceParse: 0,	// 当选择一个日期之后是否立即关闭此日期时间选择器
+        showMeridian: 1	// 12小时制和24小时制的选择方式
+    });
+     
+     
+ 	$('.form_date').datetimepicker({
+        language:  'zh-CN',
+        format: 'yyyy-mm-dd',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,	// 日期时间选择器所能够提供的最精确的时间选择视图。默认值：0, 'hour'
+		forceParse: 0
+    });
+ 	
+ 	
+	$('.form_time').datetimepicker({
+        language:  'zh-CN',
+        format: 'hh:ii',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,    // 日期时间选择器最高能展示的选择范围视图。默认值：4, 'decade'
+		forceParse: 0
+    });
+</script>
+
+</body>
+</html>
