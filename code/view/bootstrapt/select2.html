@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link href="http://res.yangfan.ren/css/select2.min.css" rel="stylesheet">
+<link href="http://res.yangfan.ren/css/select2.min.css" rel="stylesheet">
+<title>支持模糊查询的select控件</title>
+<!-- 官网:http://select2.github.io/select2/ -->
+</head>
+<body>
+	<label for="id_label_single">
+		Click this to highlight the single select element
+		<select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 50%;">
+			
+		
+			    <option value="30127">转盘-200张爽卡</option>
+			
+			    <option value="30126">转盘-20张爽卡</option>
+			
+			    <option value="30125">转盘-3张爽卡</option>
+			
+			    <option value="20042">扑克树</option>
+			
+			    <option value="30124">破产宝箱</option>
+			
+			    <option value="30123">门票宝箱</option>
+			
+			    <option value="30119">首充翻倍-500元</option>
+			
+			    <option value="30118">首充翻倍-100元</option>
+			
+			    <option value="30116">首充翻倍-5元</option>
+			
+			    <option value="30117">首充翻倍-10元</option>
+			
+			    <option value="30006">2万金币+1元话费券*2</option>
+		</select>
+	</label>
+</body>
+<script src="http://res.yangfan.ren/js/jquery.min.js"></script>
+<script src="http://res.yangfan.ren/js/select2.min.js"></script>
+<script>
+	$("#id_label_single").select2({
+		placeholder: "Select a State",
+	});
+</script>
+</html>
