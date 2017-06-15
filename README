@@ -1,0 +1,20 @@
+2017-06-15
+
+
+
+2017-06-14
+    问题：Linux下如何根据端口查询到进程号然后杀死进程
+    解答：
+        1.sudo netstat -anp|grep 9001 查询端口的进程
+        2.ps -ef|grep 992 查询进程情况
+        3.sudo kill -s 9 992 杀死进程
+    问题：nginx500异常错误日志不显示
+    解答：
+        1.修改php-fpm中配置，没有则增加
+        catch_workers_output = yes
+        error_log = log/error_log
+
+        2.修改php.ini中配置，没有则增加
+        log_errors = On
+        error_log = "/var/log/phpfpm_error_log" // 自定义
+        error_reporting=E_ALL&~E_NOTICE
