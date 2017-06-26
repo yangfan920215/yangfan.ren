@@ -1,5 +1,16 @@
 <?php
-echo 'xxx';
+echo '陋习戒除<br/>';
+echo date('Y-m-d H:i:s') . '---睡眠（23:00~23:30至07:30~08:30）<br/>';
+echo date('Y-m-d H:i:s') . '---戒撸（七天可招嫖一次）<br/>';
+echo date('Y-m-d H:i:s') . '---戒烟（每天不超过五根）<br/>';
+echo '性格养成<br/>';
+echo date('Y-m-d H:i:s') . '---沉默是金<br/>';
+echo date('Y-m-d H:i:s') . '---镇定自若<br/>';
+echo date('Y-m-d H:i:s') . '---谋定后动<br/>';
+echo '资源积累<br/>';
+echo date('Y-m-d H:i:s') . '---Web架构师<br/>';
+echo date('Y-m-d H:i:s') . '---存款100k+<br/>';
+echo date('Y-m-d H:i:s') . '---体重65kg<br/>';
 exit;
 /**
  * 入口文件
