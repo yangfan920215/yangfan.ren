@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers\phoenix;
 
-use App\Models\Phoenix;
+use App\Models\Phoenixs;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -71,7 +71,7 @@ class OathController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Phoenix::class, function (Grid $grid) {
+        return Admin::grid(Phoenixs::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
 
             // 多表关联
@@ -93,7 +93,7 @@ class OathController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Phoenix::class, function (Form $form) {
+        return Admin::form(Phoenixs::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
