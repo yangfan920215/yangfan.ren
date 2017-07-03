@@ -11,7 +11,17 @@ Route::group([
 ], function (Router $router) {
     $router->get('/', 'HomeController@index');
 
-    $router->get('/phoenix/oath', "phoenix\\OathController@index");
+    Route::group([
+        'prefix'        => 'phoenix',
+    ], function (Router $router) {
+        $router->get('controls', "phoenix\\ControlsController@index");
+        $router->get('controls/create', 'phoenix\\ControlsController@create');
+        $router->post('controls/create', 'phoenix\\ControlsController@create');
+
+        $router->get('oath', "phoenix\\OathController@index");
+    });
+
+
 });
 
 

@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Phoenix;
+use App\Models\Confphoenix;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Phoenix_conf extends Authenticatable
+class Controls extends Authenticatable
 {
-    protected $table = 'phoenix_config';
+    protected $table = 'controls';
     use Notifiable;
 
     /**
@@ -30,8 +30,4 @@ class Phoenix_conf extends Authenticatable
     ];
 
 
-    public function phoenixes()
-    {
-        return $this->hasMany(Phoenix::class);
-    }
 }
