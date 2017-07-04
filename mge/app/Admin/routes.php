@@ -21,6 +21,11 @@ Route::group([
         $router->get('oath', "phoenix\\OathController@index");
         $router->get('oath/create', 'phoenix\\OathController@create');
         $router->post('oath/create', 'phoenix\\OathController@create');
+
+        $router->get('exec', "phoenix\\ExecController@index");
+        $router->get('exec/create', 'phoenix\\ExecController@create');
+        $router->post('exec/create', 'phoenix\\ExecController@create');
+        $router->delete('exec/{id}', 'phoenix\\ExecController@edit');
     });
 
 

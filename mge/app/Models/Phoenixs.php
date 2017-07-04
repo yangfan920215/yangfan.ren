@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Confphoenix;
+use App\Models\ConfigPhoenix;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -31,6 +31,6 @@ class Phoenixs extends Authenticatable
 
     public function conf_phoenix()
     {
-        return $this->belongsTo(Confphoenix::class, 'type');
+        return $this->belongsTo(ConfigPhoenix::class, 'type');
     }
 }
