@@ -20,3 +20,34 @@ function xtime($sDate, $eDate){
     $s = floor(($cle%(3600*24))%60);
     return "$d 天 $h 小时 $m 分 $s 秒";
 }
+
+/**
+ * 调试函数
+ * @param mixd $data
+ * @param string $is_ext
+ */
+function D($data, $is_ext = TRUE){
+    echo '<pre>';
+    print_r($data);
+    if ($is_ext) {
+        exit;
+    }
+}
+
+
+/**
+ * 将配置表数组转化为select组建所需数据格式
+ * @param array $config
+ * @param $key
+ * @param $val
+ * @return array
+ */
+function toSelect(array $config, $key, $val){
+    $select = array();
+    foreach ($config as $item) {
+        if (isset($item[$key]) && isset($item[$val])){
+            $select[$item[$key]] = $item[$val];
+        }
+    }
+    return $select;
+}

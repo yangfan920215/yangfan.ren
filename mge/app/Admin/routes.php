@@ -19,6 +19,8 @@ Route::group([
         $router->post('controls/create', 'phoenix\\ControlsController@create');
 
         $router->get('oath', "phoenix\\OathController@index");
+        $router->get('oath/create', 'phoenix\\OathController@create');
+        $router->post('oath/create', 'phoenix\\OathController@create');
     });
 
 

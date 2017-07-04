@@ -2,7 +2,8 @@
 
 namespace App\Admin\Controllers\phoenix;
 
-use App\Models\Phoenixs;
+use App\Models\ConfigPhoenix;
+use App\Models\ConfigState;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -10,6 +11,9 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class OathController extends Controller
 {
@@ -24,8 +28,8 @@ class OathController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('誓言');
-            $content->description('凤凰的血脉庇佑着我');
+            $content->header('Oath');
+            // $content->description('');
 
             $content->body($this->grid());
         });
@@ -41,8 +45,7 @@ class OathController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('Oath');
 
             $content->body($this->form()->edit($id));
         });
@@ -53,15 +56,32 @@ class OathController extends Controller
      *
      * @return Content
      */
-    public function create()
+    public function create(Request $request)
     {
-        return Admin::content(function (Content $content) {
+        if (isset($request->name)){
+            // 新增逻辑
+            $ConfigPhoenix = new ConfigPhoenix;
 
-            $content->header('header');
-            $content->description('description');
+            $ConfigPhoenix->state_id = $request->input('state_id');
+            $ConfigPhoenix->name = $request->input('name');
+            $ConfigPhoenix->describe = $request->input('describe');
 
-            $content->body($this->form());
-        });
+            $ConfigPhoenix->save();
+
+            $success = new MessageBag([
+                'title'   => 'Oath',
+                'message' => 'Create Success',
+            ]);
+
+            return redirect(admin_url('phoenix/oath'))->with(compact('success'));
+        }else{
+            return Admin::content(function (Content $content) {
+
+                $content->header('Oath');
+
+                $content->body($this->form());
+            });
+        }
     }
 
     /**
@@ -71,14 +91,13 @@ class OathController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Phoenixs::class, function (Grid $grid) {
+        return Admin::grid(ConfigPhoenix::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
 
             // 多表关联
-            $grid->phoenix_conf('类型')->display(function ($phoenix_conf) {
-                return $phoenix_conf['name'];
+            $grid->config_state('境界')->display(function ($ConfigState) {
+                return $ConfigState['name'];
             });
-
 
             $grid->column('name', '名称');
             $grid->column('describe', '描述');
@@ -93,12 +112,23 @@ class OathController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Phoenixs::class, function (Form $form) {
-
+        return Admin::form(ConfigPhoenix::class, function (Form $form) {
             $form->display('id', 'ID');
+
+            $form->select('state_id', 'state')->options(
+                toSelect(
+                    ConfigState::all()->toArray(),
+                    'id',
+                    'name'
+                )
+            );
+
+            $form->text('name', 'Name')->rules('required|min:3');
+            $form->textarea('describe', 'Describe')->rows(5);
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
+            $form->setAction(admin_url('phoenix/oath/create'));
         });
     }
 }
