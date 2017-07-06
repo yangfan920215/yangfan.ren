@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+$router->post('mail', 'MailController@sendMail');
+$router->get('mail', 'MailController@sendMail');
