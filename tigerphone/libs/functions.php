@@ -13,12 +13,12 @@
  * @param array $data
  * @param string $msg
  */
-function _exit($status = 4, $data = array(), $msg = ''){
-    exit(json_encode(array(
+function retJson($status = 4, $data = array(), $msg = ''){
+    return json_encode(array(
         'status'=>$status,
         'msg'=>$msg,
         'data'=>$data,
-    ), true));
+    ), true);
 }
 
 /**
