@@ -95,15 +95,15 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
-/*    $(function(){
+    $(function(){
         $.ajax({
             type: "GET",
-            url: "http://www.tigerphone.test/init",
+            url: "http://www.tigerphone.test/games",
             //data: {username:$("#username").val(), content:$("#content").val()},
             dataType: "json",
             success: function(data){
                 console.info(data);
             }
         });
-    });*/
+    });
 </script>

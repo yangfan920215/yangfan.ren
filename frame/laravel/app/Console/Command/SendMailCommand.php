@@ -36,7 +36,7 @@ class SendMailCommand extends Command
     public function handle()
     {
         $content = '这是一封来自Laravel的测试邮件.';
-        $toMail  = 'yangfan.ren@foxmail.com';
+        $toMail  = 'tbers.com@gmail.com';
 
         Mail::raw($content, function ($message) use ($toMail) {
             $message->subject('[ 测试 ] 测试邮件SendMail - ' .date('Y-m-d H:i:s'));
